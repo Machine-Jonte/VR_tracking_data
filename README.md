@@ -3,8 +3,9 @@ Two Franka Emika Panda robots which are following different trajectories. Either
 
 
 <p align="center">
-  <img src="./tracking/wave.gif" title="Hello World!">
+  <img src="./tracking/wave.gif" title="Hello World!" width="800">
 </p>
+Rviz on the left and Gazebo simulation on the right. All packaged to build this will be available on my github. The code is currently under development and will be released when finished. 
 
 ## Handwritten digits
 Trying to get the results as close to real performance I decided to only do the digits one time. The digits are generated with the two arms at the same time. And the digits are hand written (obviously).
@@ -83,6 +84,9 @@ f1 is ending frequency.
 T is the period time.  
 In this test f0 = 0.00001, f1 = 1 and T = 500.   
 The output is:  
+<p align="center">
+  <img src="./tracking/computer_generated_paths/sweepsine/sweep_sine.gif" title="Hello World!" width="800">
+</p>
 <p align="center">
   <img src="./tracking/computer_generated_paths/sweepsine/left.png" width="800" title="Sweep sine system output left.">
   <img src="./tracking/computer_generated_paths/sweepsine/right.png" width="800" title="Sweep sine system output right.">
