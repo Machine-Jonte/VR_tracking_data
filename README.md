@@ -67,3 +67,15 @@ Elapsed time: ~29.3 seconds
 </p>
 Elapsed time: ~18.0 seconds
 
+## Sweep Sine
+A computer generated sweep sine wave for controller pose. The sweep sine is following the following function:  
+<!-- f(t) = sin(2\pi t \frac{f_1-f_0}{2T} \cdot t^2) -->
+<p align="center">
+  <img src="./tracking/computer_generated_paths/sweepsine/sweep_function.png" width="200" title="Sweep sine function.">
+</p>
+
+The output is:  
+<p align="center">
+  <img src="./tracking/computer_generated_paths/sweepsine/left.png" width="800" title="Sweep sine system output left.">
+  <img src="./tracking/computer_generated_paths/sweepsine/right.png" width="800" title="Sweep sine system output right.">
+</p>
