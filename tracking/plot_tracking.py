@@ -6,7 +6,7 @@ import sys
 import matplotlib.patches as mpatches
 
 class DataManager:
-	def __init__(self, leftFile="left_tracking.csv", rightFile="right_tracking.csv"):
+	def __init__(self, leftFile, rightFile):
 		files = [open(leftFile, "r"), open(rightFile, "r")]
 		self.arms = [  ArmData(files[0], "left"),    # left
 					   ArmData(files[1], "right")  ] # right
@@ -78,9 +78,8 @@ def set_axes_equal(ax):
 
 
 if __name__ == "__main__":
-	datamanager = DataManager()
-	if len(sys.argv) > 2:
-		datamanager = DataManager(sys.argv[1], sys.argv[2])
+	assert(len(sys.argv) > 2)
+	datamanager = DataManager(sys.argv[1], sys.argv[2])
 		
 	for arm in datamanager.arms:
 		x_c = arm.currentPoses[0][:]
