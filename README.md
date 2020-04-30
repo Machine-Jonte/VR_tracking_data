@@ -1,6 +1,11 @@
 # VR Tracking Data
 Two Franka Emika Panda robots which are following different trajectories. Either human made or computer generated. The human generated trajectories are made using HTC-Vive VR controllers.
 
+
+<p align="center">
+  <img src="./tracking/wave.gif" title="Hello World!">
+</p>
+
 ## Handwritten digits
 Trying to get the results as close to real performance I decided to only do the digits one time. The digits are generated with the two arms at the same time. And the digits are hand written (obviously).
 
@@ -73,7 +78,10 @@ A computer generated sweep sine wave for controller pose. The sweep sine is foll
 <p align="center">
   <img src="./tracking/computer_generated_paths/sweepsine/sweep_function.png" width="200" title="Sweep sine function.">
 </p>
-
+f0 is starting frequency.  
+f1 is ending frequency.  
+T is the period time.  
+In this test f0 = 0.00001, f1 = 1 and T = 500.   
 The output is:  
 <p align="center">
   <img src="./tracking/computer_generated_paths/sweepsine/left.png" width="800" title="Sweep sine system output left.">
