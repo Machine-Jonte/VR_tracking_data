@@ -141,10 +141,8 @@ Estimating the transfer function one can see that the system only can track low 
 The images was generated with MATLAB. The script is called TFE.m.
 
 <p align="center">
-  <img src="./tracking/TFE.png" width="800" title="Step function system output left.">
+  <img src="./tracking/TFE_valid_region.png" width="400" title="Step function system output left.">
+  <img src="./tracking/TFE.png" width="400" title="Step function system output left.">
 </p>
 
-Valid region (as step did not go to 5Hz)
-<p align="center">
-  <img src="./tracking/TFE_valid_region.png" width="800" title="Step function system output left.">
-</p>
+Valid region to the right (as sweep sine did not go to 5Hz).
