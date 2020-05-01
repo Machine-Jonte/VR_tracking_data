@@ -134,3 +134,17 @@ python plot_graph.py computer_generated_paths/step/stepyleft.csv computer_genera
   <img src="./tracking/computer_generated_paths/step/right.png" width="800" title="Step function system output right.">
 </p>
 
+
+
+## Transfer Function (Estimate)
+Estimating the transfer function one can see that the system only can track low frequencies. That is also possible to see from the sweep sine tests. From which the transfer function is estimated from.
+The images was generated with MATLAB. The script is called TFE.m.
+
+<p align="center">
+  <img src="./tracking/TFE.png" width="800" title="Step function system output left.">
+</p>
+
+Valid region (as step did not go to 5Hz)
+<p align="center">
+  <img src="./tracking/TFE_valid_region.png" width="800" title="Step function system output left.">
+</p>
