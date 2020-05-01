@@ -5,11 +5,21 @@ Two Franka Emika Panda robots which are following different trajectories. Either
 <p align="center">
   <img src="./tracking/wave.gif" title="Hello World!" width="800">
 </p>
-Rviz on the left and Gazebo simulation on the right. All packaged to build this will be available on my github. The code is currently under development and will be released when finished. 
-
+Rviz on the left and Gazebo simulation on the right. All the packages to build and run this demo will be available on my github. The code is currently under development and will be released when finished (around June 2020).  
+  
+The data is generated and collected using the ROS packages:  
+* [moveit_vive](https://github.com/Machine-Jonte/moveit_vive), used for controlling and recording data.
+* [vive_ros](https://github.com/Machine-Jonte/vive_ros/tree/master), reading controller data and send it as ROS messages (modified version by me).
+* [panda_dual_gazebo_moveit_config](https://github.com/Machine-Jonte/panda_dual_gazebo_moveit_config), configuration for MoveIt.
+* [panda_dual_gazebo](https://github.com/Machine-Jonte/panda_dual_gazebo), xacro and robot files (modified for working with gazebo). 
 ## Handwritten digits
-Trying to get the results as close to real performance I decided to only do the digits one time. The digits are generated with the two arms at the same time. And the digits are hand written (obviously).
-
+Trying to get the results as close to real performance I decided to only do the digits one time, except number nine (which I wrote horribly bad). The digits are generated with the two arms at the same time. And the digits are hand written (obviously). The first image is left and the second image is right.   
+  
+To generate the digits run:  
+```
+cd {where plot_tracking.py is located}
+python plot_tracking.py /dir/to/digit/left.csv /dir/to/digit/right.csv
+```
 ### One
 <p align="center">
   <img src="./tracking/shapes/numbers/1one/left.png" width="400" title="Show the digit number 1 for tracking.">
@@ -82,12 +92,45 @@ A computer generated sweep sine wave for controller pose. The sweep sine is foll
 f0 is starting frequency.  
 f1 is ending frequency.  
 T is the period time.  
-In this test f0 = 0.00001, f1 = 1 and T = 500.   
-The output is:  
+In this test f0 = 0.00001, f1 = 1 and T = 500.  
+
+
+To generate the graphs run:  
+
+```
+cd {dir where plot_graph.py is located}
+python plot_graph.py computer_generated_paths/sweepsine/sweepsineleft.csv computer_generated_paths/sweepsine/sweepsineright.csv
+```
 <p align="center">
-  <img src="./tracking/computer_generated_paths/sweepsine/sweep_sine.gif" title="Hello World!" width="800">
+  <img src="./tracking/computer_generated_paths/sweepsine/sweep_sine.gif" title="Sweeeeeep sine!" width="800">
 </p>
 <p align="center">
   <img src="./tracking/computer_generated_paths/sweepsine/left.png" width="800" title="Sweep sine system output left.">
   <img src="./tracking/computer_generated_paths/sweepsine/right.png" width="800" title="Sweep sine system output right.">
 </p>
+
+
+## Step
+The step function increased in size for each period. The function can be described as:  
+<!-- g(t) = a(t)\cdot  sign(sin(2\pi ft)) -->
+<p align="center">
+  <img src="./tracking/computer_generated_paths/step/function.png" width="200" title="Step function.">
+</p>
+<!-- a(t) = int(tf) \cdot c, \text{ where } c = 0.01 -->
+<p align="center">
+  <img src="./tracking/computer_generated_paths/step/a_function.png" width="200" title="a(t) function.">
+</p>
+where the frequency f = 1/10.  
+       
+      
+To generate the graphs run:  
+```
+cd {dir where plot_graph.py is located}
+python plot_graph.py computer_generated_paths/step/stepyleft.csv computer_generated_paths/step/stepyright.csv 
+```
+
+<p align="center">
+  <img src="./tracking/computer_generated_paths/step/left.png" width="800" title="Step function system output left.">
+  <img src="./tracking/computer_generated_paths/step/right.png" width="800" title="Step function system output right.">
+</p>
+
