@@ -83,6 +83,52 @@ Elapsed time: ~29.3 seconds
 </p>
 Elapsed time: ~18.0 seconds
 
+# Computer Generated
+## Circle
+A circle of different sizes and speed was generated to study the behavior of the system. 
+The function used to calculate the circle is:  
+<!-- y(t) = a \cdot cos\left(2\pi \frac{1}{T} t\right) -->
+<!-- z(t) = a \cdot sin\left(2\pi \frac{1}{T} t\right) -->
+<p align="center">
+  <img src="./tracking/computer_generated_paths/circle/y_function.png" width="200" title="Circle function y.">
+</p>
+<p align="center">
+  <img src="./tracking/computer_generated_paths/circle/z_function.png" width="200" title="Circle function z.">
+</p>
+
+### T = 10, c = 0.1, publish frequency = 100
+<p align="center">
+  <img src="./tracking/computer_generated_paths/circle/10/left_small.png" width="400" title="Small generated circle with period time 10.">
+  <img src="./tracking/computer_generated_paths/circle/10/right_small.png" width="400" title="Small generated circle with period time 10.">
+</p>
+
+### T = 10, c = 0.2, publish frequency = 100
+<p align="center">
+  <img src="./tracking/computer_generated_paths/circle/10/left.png" width="400" title="Small generated circle with period time 10.">
+  <img src="./tracking/computer_generated_paths/circle/10/right.png" width="400" title="Small generated circle with period time 10.">
+</p>
+
+### T = 30, c = 0.2, publish frequency = 100
+<p align="center">
+  <img src="./tracking/computer_generated_paths/circle/30/left.png" width="400" title="Small generated circle with period time 30.">
+  <img src="./tracking/computer_generated_paths/circle/30/right.png" width="400" title="Small generated circle with period time 30.">
+</p>
+
+### T = 10, c = 0.2, publish frequency = 2
+<p align="center">
+  <img src="./tracking/computer_generated_paths/circle/10/pub_freq2/left.png" width="400" title="Small generated circle with period time 10.">
+  <img src="./tracking/computer_generated_paths/circle/10/pub_freq2/right.png" width="400" title="Small generated circle with period time 10.">
+</p>
+
+### T = 5, c = 0.2, publish frequency = 2
+<p align="center">
+  <img src="./tracking/computer_generated_paths/circle/5/pub_freq2/left.png" width="400" title="Small generated circle with period time 5.">
+  <img src="./tracking/computer_generated_paths/circle/5/pub_freq2/right.png" width="400" title="Small generated circle with period time 5.">
+</p>
+
+
+
+
 ## Sweep Sine
 A computer generated sweep sine wave for controller pose. The sweep sine is following the following function:  
 <!-- f(t) = sin(2\pi t \frac{f_1-f_0}{2T} \cdot t^2) -->
