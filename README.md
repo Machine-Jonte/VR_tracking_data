@@ -84,10 +84,16 @@ Elapsed time: ~38.5 seconds
 
 ## Computer Generated
 ### Circle
+#### T = 10, r = 0.1, publish frequency = 100
+<p align="center">
+  <img src="./IKFast/computer_generated/circle/T10r01/left.png" width="400" title="Small generated circle with period time 10.">
+  <img src="./IKFast/computer_generated/circle/T10r01/right.png" width="400" title="Small generated circle with period time 10.">
+</p>
+
 #### T = 20, r = 0.1, publish frequency = 100
 <p align="center">
-  <img src="./IKFast/computer_generated/circle/tuned_PID/left.png" width="400" title="Small generated circle with period time 20.">
-  <img src="./IKFast/computer_generated/circle/tuned_PID/right.png" width="400" title="Small generated circle with period time 20.">
+  <img src="./IKFast/computer_generated/circle/T20r01/left.png" width="400" title="Small generated circle with period time 20.">
+  <img src="./IKFast/computer_generated/circle/T20r01/right.png" width="400" title="Small generated circle with period time 20.">
 </p>
 
 #### T = 5, r = 0.1, publish frequency = 100
