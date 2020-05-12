@@ -35,20 +35,20 @@ Trying to get the results as close to real performance I decided to only do the 
 ### Circle
 A circle of different sizes and speed was generated to study the behavior of the system. 
 The function used to calculate the circle is:  
-<!-- y(t) = a \cdot cos\left(2\pi \frac{1}{T} t\right) -->
-<!-- z(t) = a \cdot sin\left(2\pi \frac{1}{T} t\right) -->
+<!-- y(t) = r \cdot cos\left(2\pi \frac{1}{T} t\right)-->
+<!-- z(t) = r \cdot sin\left(2\pi \frac{1}{T} t\right) -->
 <p align="center">
-  <img src="./KDL/computer_generated_paths/circle/y_function.png" width="200" title="Circle function y.">
+  <img src="./functions/circle/y_function.png" width="200" title="Circle function y.">
 </p>
 <p align="center">
-  <img src="./KDL/computer_generated_paths/circle/z_function.png" width="200" title="Circle function z.">
+  <img src="./functions/circle/z_function.png" width="200" title="Circle function z.">
 </p>
 
 ### Sweep Sine
 A computer generated sweep sine wave for controller pose. The sweep sine is following the following function:  
 <!-- f(t) = sin(2\pi t \frac{f_1-f_0}{2T} \cdot t^2) -->
 <p align="center">
-  <img src="./KDL/computer_generated_paths/sweepsine/sweep_function.png" width="200" title="Sweep sine function.">
+  <img src="./functions/sweepsine/sweep_function.png" width="200" title="Sweep sine function.">
 </p>
 f0 is starting frequency.  
 f1 is ending frequency.  
@@ -60,13 +60,13 @@ In this test f0 = 0.00001, f1 = 1 and T = 500.
 The step function increased in size for each period. The function can be described as:  
 <!-- g(t) = a(t)\cdot  sign(sin(2\pi ft)) -->
 <p align="center">
-  <img src="./KDL/computer_generated_paths/step/function.png" width="200" title="Step function.">
+  <img src="./functions/step/function.png" width="200" title="Step function.">
 </p>
 <!-- a(t) = int(tf) \cdot c, \text{ where } c = 0.01 -->
 <p align="center">
-  <img src="./KDL/computer_generated_paths/step/a_function.png" width="200" title="a(t) function.">
+  <img src="./functions/step/a_function.png" width="200" title="a(t) function.">
 </p>
-where the frequency f = 1/10. 
+The frequency f = 1/10. 
 
 # IKFast
 ## Handwritten digits
@@ -84,10 +84,16 @@ Elapsed time: ~38.5 seconds
 
 ## Computer Generated
 ### Circle
-#### T = 20, c = 1, publish frequency = 100
+#### T = 20, r = 0.1, publish frequency = 100
 <p align="center">
   <img src="./IKFast/computer_generated/circle/tuned_PID/left.png" width="400" title="Small generated circle with period time 20.">
   <img src="./IKFast/computer_generated/circle/tuned_PID/right.png" width="400" title="Small generated circle with period time 20.">
+</p>
+
+#### T = 5, r = 0.1, publish frequency = 100
+<p align="center">
+  <img src="./IKFast/computer_generated/circle/T5r01/left.png" width="400" title="Small generated circle with period time 20.">
+  <img src="./IKFast/computer_generated/circle//T5r01/right.png" width="400" title="Small generated circle with period time 20.">
 </p>
 
 ### Sweep Sine
@@ -177,31 +183,31 @@ Elapsed time: ~18.0 seconds
 # Computer Generated
 ## Circle
 
-### T = 10, c = 0.1, publish frequency = 100
+### T = 10, r = 0.1, publish frequency = 100
 <p align="center">
   <img src="./KDL/computer_generated_paths/circle/10/left_small.png" width="400" title="Small generated circle with period time 10.">
   <img src="./KDL/computer_generated_paths/circle/10/right_small.png" width="400" title="Small generated circle with period time 10.">
 </p>
 
-### T = 10, c = 0.2, publish frequency = 100
+### T = 10, r = 0.2, publish frequency = 100
 <p align="center">
   <img src="./KDL/computer_generated_paths/circle/10/left.png" width="400" title="Small generated circle with period time 10.">
   <img src="./KDL/computer_generated_paths/circle/10/right.png" width="400" title="Small generated circle with period time 10.">
 </p>
 
-### T = 30, c = 0.2, publish frequency = 100
+### T = 30, r = 0.2, publish frequency = 100
 <p align="center">
   <img src="./KDL/computer_generated_paths/circle/30/left.png" width="400" title="Small generated circle with period time 30.">
   <img src="./KDL/computer_generated_paths/circle/30/right.png" width="400" title="Small generated circle with period time 30.">
 </p>
 
-### T = 10, c = 0.2, publish frequency = 2
+### T = 10, r = 0.2, publish frequency = 2
 <p align="center">
   <img src="./KDL/computer_generated_paths/circle/10/pub_freq2/left.png" width="400" title="Small generated circle with period time 10.">
   <img src="./KDL/computer_generated_paths/circle/10/pub_freq2/right.png" width="400" title="Small generated circle with period time 10.">
 </p>
 
-### T = 5, c = 0.2, publish frequency = 2
+### T = 5, r = 0.2, publish frequency = 2
 <p align="center">
   <img src="./KDL/computer_generated_paths/circle/5/pub_freq2/left.png" width="400" title="Small generated circle with period time 5.">
   <img src="./KDL/computer_generated_paths/circle/5/pub_freq2/right.png" width="400" title="Small generated circle with period time 5.">
