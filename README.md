@@ -1,4 +1,6 @@
 # VR Tracking Data
+Please note, this project is under development and that the results are constantly worked on to be improved. The data below is of 2020-05-12 not accurate as the system has been rebuilt.  
+
 Two Franka Emika Panda robots which are following different trajectories. Either human made or computer generated. The human generated trajectories are made using HTC-Vive VR controllers.
 
 
