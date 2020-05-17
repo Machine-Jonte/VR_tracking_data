@@ -20,7 +20,7 @@ The data is generated and collected using the ROS packages:
 To generate 3D trajectory graph run:  
 ```
 cd {where plot_tracking.py is located}
-python plot_tracking.py /dir/to/left.csv /dir/to/right.csv
+python plot_tracking_two_files.py /dir/to/left.csv /dir/to/right.csv
 ```
 To generate 2D graphs run:
 ```
