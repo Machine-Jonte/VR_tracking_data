@@ -76,7 +76,7 @@ class AlterablePlot:
         self.mean_shape = mean_shape
         self.pca = pca
 
-        self.components_slider = [Slider(self.axcomp[i], "c" + str(i+1), -30.0, 30.0, valinit=self.components[i], valstep=0.1) for i in range(self.components.size)]
+        self.components_slider = [Slider(self.axcomp[i], "c" + str(i+1), -500.0, 500.0, valinit=self.components[i], valstep=0.1) for i in range(self.components.size)]
         for slider in self.components_slider:
             slider.on_changed(self.update)
         

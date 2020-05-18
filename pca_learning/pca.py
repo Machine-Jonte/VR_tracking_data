@@ -61,6 +61,10 @@ if __name__ == "__main__":
 
 
     # matrix = preprocessing.normalize(matrix, axis=1)
+    matrix = np.array(matrix)
+    for i in range(matrix.shape[0]):
+        matrix[i,0:50] = 0
+        matrix[i,150:200] = 0
     matrix = preprocessing.scale(matrix, axis=1)
 
     # matrix = np.array(matrix)
