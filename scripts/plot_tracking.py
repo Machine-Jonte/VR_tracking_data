@@ -52,13 +52,13 @@ if __name__ == "__main__":
     names = ["left", "right"]
 
     for i, arm in enumerate(arms):
-        x_c = arm.iloc[:,0]
-        y_c = arm.iloc[:,1]
-        z_c = arm.iloc[:,2]
+        x_t = arm.iloc[:,0]
+        y_t = arm.iloc[:,1]
+        z_t = arm.iloc[:,2]
     
-        x_t = arm.iloc[:,3]
-        y_t = arm.iloc[:,4]
-        z_t = arm.iloc[:,5]
+        x_c = arm.iloc[:,3]
+        y_c = arm.iloc[:,4]
+        z_c = arm.iloc[:,5]
         
         fig = plt.figure(names[i])
         ax = fig.add_subplot(111, projection='3d')

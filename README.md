@@ -76,11 +76,54 @@ The frequency f = 1/10.
   <img src="./IKFast/human_generated/numbers/1one/right.png" width="400" title="Show the digit number 1 for tracking.">
 </p>
 Elapsed time: ~6.8 seconds
+
+<p align="center">
+  <img src="./IKFast/human_generated/numbers/2two/left.png" width="400" title="Show the digit number 2 for tracking.">
+  <img src="./IKFast/human_generated/numbers/2two/right.png" width="400" title="Show the digit number 2 for tracking.">
+</p>
+Elapsed time: ~20.7 seconds
+
+<p align="center">
+  <img src="./IKFast/human_generated/numbers/3three/left.png" width="400" title="Show the digit number 3 for tracking.">
+  <img src="./IKFast/human_generated/numbers/3three/right.png" width="400" title="Show the digit number 3 for tracking.">
+</p>
+Elapsed time: ~28.2 seconds
+
+<p align="center">
+  <img src="./IKFast/human_generated/numbers/4four/left.png" width="400" title="Show the digit number 4 for tracking.">
+  <img src="./IKFast/human_generated/numbers/4four/right.png" width="400" title="Show the digit number 4 for tracking.">
+</p>
+Elapsed time: ~20.9 seconds
+
+<p align="center">
+  <img src="./IKFast/human_generated/numbers/5five/left.png" width="400" title="Show the digit number 5 for tracking.">
+  <img src="./IKFast/human_generated/numbers/5five/right.png" width="400" title="Show the digit number 5 for tracking.">
+</p>
+Elapsed time: ~16.6 seconds
+
+<p align="center">
+  <img src="./IKFast/human_generated/numbers/6six/left.png" width="400" title="Show the digit number 6 for tracking.">
+  <img src="./IKFast/human_generated/numbers/6six/right.png" width="400" title="Show the digit number 6 for tracking.">
+</p>
+Elapsed time: ~19.1 seconds
+
+<p align="center">
+  <img src="./IKFast/human_generated/numbers/7seven/left.png" width="400" title="Show the digit number 7 for tracking.">
+  <img src="./IKFast/human_generated/numbers/7seven/right.png" width="400" title="Show the digit number 7 for tracking.">
+</p>
+Elapsed time: ~7.5 seconds
+
 <p align="center">
   <img src="./IKFast/human_generated/numbers/8eight/left.png" width="400" title="Show the digit number 8 for tracking.">
   <img src="./IKFast/human_generated/numbers/8eight/right.png" width="400" title="Show the digit number 8 for tracking.">
 </p>
 Elapsed time: ~38.5 seconds
+
+<p align="center">
+  <img src="./IKFast/human_generated/numbers/9nine/left.png" width="400" title="Show the digit number 9 for tracking.">
+  <img src="./IKFast/human_generated/numbers/9nine/right.png" width="400" title="Show the digit number 9 for tracking.">
+</p>
+Elapsed time: ~20.9 seconds
 
 ## Computer Generated
 ### Circle
@@ -250,3 +293,19 @@ The images was generated with MATLAB. The script is called TFE.m.
 </p>
 
 Valid region to the right (as sweep sine did not go to 5Hz).
+
+
+# PCA
+The PCA algorithm is used to learn trajectories of the robot and then be able to transform them into new ones with similar structure. Below is an example of how two circle trajectories can be created by relying on previous data. Note that nothing is hard coded, this technique works for any sort of data.
+
+<p align="center">
+  <img src="./GIFS/pca_demo.gif" title="PCA circle generator." width="300">
+</p>
+
+Preprocessed input data is shown below. The data is moved to origin, flattened in z, zero mean and unit length.
+
+<p align="center">
+  <img src="./pca_learning/images/all.png" title="PCA circle data." width="500">
+</p>
+
+
