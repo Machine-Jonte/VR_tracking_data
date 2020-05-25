@@ -1,0 +1,41 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/jonathan/ws_moveit/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/jonathan/ws_moveit/src/moveit/moveit_planners/chomp/chomp_motion_planner/include/**",
+        "/home/jonathan/ws_moveit/src/collada_urdf/collada_parser/include/**",
+        "/home/jonathan/ws_moveit/src/collada_urdf/collada_urdf/include/**",
+        "/home/jonathan/ws_moveit/src/control_evaluation/include/**",
+        "/home/jonathan/ws_moveit/src/geometric_shapes/include/**",
+        "/home/jonathan/ws_moveit/src/moveit/moveit_experimental/moveit_jog_arm/include/**",
+        "/home/jonathan/ws_moveit/src/moveit/moveit_planners/chomp/chomp_interface/include/**",
+        "/home/jonathan/ws_moveit/src/moveit/moveit_ros/benchmarks/include/**",
+        "/home/jonathan/ws_moveit/src/moveit/moveit_plugins/moveit_ros_control_interface/include/**",
+        "/home/jonathan/ws_moveit/src/moveit/moveit_ros/move_group/include/**",
+        "/home/jonathan/ws_moveit/src/moveit/moveit_ros/occupancy_map_monitor/include/**",
+        "/home/jonathan/ws_moveit/src/moveit/moveit_ros/robot_interaction/include/**",
+        "/home/jonathan/ws_moveit/src/moveit/moveit_setup_assistant/include/**",
+        "/home/jonathan/ws_moveit/src/moveit/moveit_plugins/moveit_simple_controller_manager/include/**",
+        "/home/jonathan/ws_moveit/src/moveit_visual_tools/include/**",
+        "/home/jonathan/ws_moveit/src/moveit_vive/include/**",
+        "/home/jonathan/ws_moveit/src/panda_dual_gazebo/include/**",
+        "/home/jonathan/ws_moveit/src/panda_dual_gazebo_panda1_ikfast_plugin/include/**",
+        "/home/jonathan/ws_moveit/src/panda_dual_gazebo_panda2_ikfast_plugin/include/**",
+        "/home/jonathan/ws_moveit/src/rviz_visual_tools/include/**",
+        "/home/jonathan/ws_moveit/src/stomp_ros/stomp_core/include/**",
+        "/home/jonathan/ws_moveit/src/stomp_ros/stomp_moveit/include/**",
+        "/home/jonathan/ws_moveit/src/stomp_ros/stomp_plugins/include/**",
+        "/home/jonathan/ws_moveit/src/vive_interface/include/**",
+        "/home/jonathan/ws_moveit/src/vive_ros/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ]
+}

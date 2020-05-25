@@ -71,24 +71,28 @@ class AlterablePlot:
         # self.axamp = plt.axes([0.25, 0.15, 0.65, 0.03], facecolor=self.axcolor)
         self.components = np.zeros((pca.n_components_, 1))
 
-        self.axcomp = [plt.axes([0.5, float(i) * 0.9/float(self.components.size)+0.1, 0.5, 0.8/float(self.components.size)], facecolor=self.axcolor) for i in range(self.components.size)]
+        self.axcomp = [plt.axes([0.6, float(i) * 0.9/float(self.components.size)+0.1, 0.3, 0.8/float(self.components.size)], facecolor=self.axcolor) for i in range(self.components.size)]
 
         self.mean_shape = mean_shape
         self.pca = pca
 
-        self.components_slider = [Slider(self.axcomp[i], "c" + str(i+1), -500.0, 500.0, valinit=self.components[i], valstep=0.1) for i in range(self.components.size)]
+        self.components_slider = [Slider(self.axcomp[i], "p" + str(i+1), -500.0, 500.0, valinit=self.components[i], valstep=0.1) for i in range(self.components.size)]
         for slider in self.components_slider:
             slider.on_changed(self.update)
         
-        self.resetax = plt.axes([0.70, 0.025, 0.1, 0.04])
-        self.button = Button(self.resetax, 'Reset', color=self.axcolor, hovercolor='0.975')
-        self.button.on_clicked(self.reset)
+        saveax = plt.axes([0.80, 0.025, 0.1, 0.04])
+        self.saveButton = Button(saveax, 'Save', color=self.axcolor, hovercolor='0.975')
+        self.saveButton.on_clicked(self.save)
+
+        self.resetax = plt.axes([0.60, 0.025, 0.1, 0.04])
+        self.resetButton = Button(self.resetax, 'Reset', color=self.axcolor, hovercolor='0.975')
+        self.resetButton.on_clicked(self.reset)
 
         self.visibility = [True, True, True, True]
         self.update(0)
 
         # Make checkbuttons with all plotted lines with correct visibility
-        rax = plt.axes([0.05, 0.80, 0.20, 0.15])
+        rax = plt.axes([0.05, 0.85, 0.30, 0.15])
         self.labels = [str(line.get_label()) for line in self.lines]
         self.visibility = [line.get_visible() for line in self.lines]
         self.check = CheckButtons(rax, self.labels, self.visibility)
@@ -96,6 +100,21 @@ class AlterablePlot:
 
     def reset(self, event):
         [slider.reset() for slider in self.components_slider]
+
+    def save(self, event):
+        print("Saved file as ./trajectory.csv")
+        new_shape = self.calculateNewShape()
+        x_left  = new_shape[0:50]
+        y_left  = new_shape[50:100]
+        z_left  = new_shape[100:150]
+
+        x_right = new_shape[150:200]
+        y_right = new_shape[200:250]
+        z_right = new_shape[250:300]
+
+        save_shape = np.array([x_left,y_left,z_left,x_right,y_right,z_right]).T
+        
+        np.savetxt("trajectory.csv", save_shape, delimiter=",")
 
     def checkFunction(self, label):
         index = self.labels.index(label)
@@ -107,16 +126,21 @@ class AlterablePlot:
     #     # ax = self.fig.add_subplot(111, projection='3d')
     #     self.ax2.plot(x, y, z, label=label)
 
-    def update(self, val):
-        self.ax2.cla()
-        self.components = np.array([slider.val for slider in self.components_slider])
-        new_shape = self.mean_shape + np.dot(self.pca.components_.T, self.components)
-        new_shape = new_shape.flatten()
+    def calculateNewShape(self):
+        self.components = np.array([slider.val for slider in self.components_slider]) # Get the values of the PCA components
+        new_shape = self.mean_shape + np.dot(self.pca.components_.T, self.components) # Generate new shape
+        new_shape = new_shape.flatten() # Remove axis in np array
+        return new_shape
 
-        self.l1, = self.ax2.plot(new_shape[0:50], new_shape[50:100], new_shape[100:150],                       label="Left PCA"  , visible=self.visibility[0])
-        self.l2, = self.ax2.plot(new_shape[150:200], new_shape[200:250], new_shape[250:300],                   label="Right PCA" , visible=self.visibility[1])
-        self.l3, = self.ax2.plot(self.mean_shape[0:50], self.mean_shape[50:100], self.mean_shape[100:150],     label="Left Mean" , visible=self.visibility[2])
-        self.l4, = self.ax2.plot(self.mean_shape[150:200], self.mean_shape[200:250], self.mean_shape[250:300], label="Right Mean", visible=self.visibility[3])
+
+    def update(self, val):
+        self.ax2.cla() # Clear the figure
+        new_shape = self.calculateNewShape()
+
+        self.l1, = self.ax2.plot(new_shape[0:50], new_shape[50:100], new_shape[100:150],                       label="Left Generated"  , visible=self.visibility[0])
+        self.l2, = self.ax2.plot(new_shape[150:200], new_shape[200:250], new_shape[250:300],                   label="Right Generated" , visible=self.visibility[1])
+        self.l3, = self.ax2.plot(self.mean_shape[0:50], self.mean_shape[50:100], self.mean_shape[100:150],     label="Left Mean" ,       visible=self.visibility[2])
+        self.l4, = self.ax2.plot(self.mean_shape[150:200], self.mean_shape[200:250], self.mean_shape[250:300], label="Right Mean",       visible=self.visibility[3])
 
         self.lines = [self.l1, self.l2, self.l3, self.l4]
 
@@ -126,3 +150,23 @@ class AlterablePlot:
         self.ax2.legend()
         self.ax2.set_aspect('equal')
         set_axes_equal(self.ax2)
+
+
+
+
+
+def plotMatrix(matrix):
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    for i in range(matrix.shape[0]):
+        # matrix[i,0:50] = 0
+        # matrix[i,150:200] = 0
+        color = list(np.random.choice(np.arange(0,1,0.0001), size=3))
+        ax.plot(matrix[i,0:50], matrix[i,50:100], matrix[i,100:150], label=str(i), color=color)
+        ax.plot(matrix[i,150:200], matrix[i,200:250], matrix[i,250:300], label=str(i), color=color)
+        ax.set_xlabel('X axis')
+        ax.set_ylabel('Y axis')
+        ax.set_zlabel('Z axis')
+        # ax.legend()
+        ax.set_aspect('equal')
+        set_axes_equal(ax)

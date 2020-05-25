@@ -20,12 +20,22 @@ The data is generated and collected using the ROS packages:
 To generate 3D trajectory graph run:  
 ```
 cd {where plot_tracking.py is located}
+python plot_tracking.py /dir/to/data.csv
+```
+or  
+```
+cd {where plot_tracking_two_files.py is located}
 python plot_tracking_two_files.py /dir/to/left.csv /dir/to/right.csv
 ```
 To generate 2D graphs run:
 ```
 cd {where plot_graph.py is located}
-python plot_graph.py /dir/to/left.csv /dir/to/right.csv
+python plot_graph.py /dir/to/data.csv
+```
+or
+```
+cd {where plot_graph.py is located}
+python plot_graph_two_files.py /dir/to/left.csv /dir/to/right.csv
 ```
 ## Human Generated
 ### Handwritten digits
@@ -38,17 +48,17 @@ The function used to calculate the circle is:
 <!-- y(t) = r \cdot cos\left(2\pi \frac{1}{T} t\right)-->
 <!-- z(t) = r \cdot sin\left(2\pi \frac{1}{T} t\right) -->
 <p align="center">
-  <img src="./functions/circle/y_function.png" width="200" title="Circle function y.">
+  <img src="./functions/circle/function.png" width="250" title="Circle function.">
 </p>
-<p align="center">
+<!-- <p align="center">
   <img src="./functions/circle/z_function.png" width="200" title="Circle function z.">
-</p>
+</p> -->
 
 ### Sweep Sine
 A computer generated sweep sine wave for controller pose. The sweep sine is following the following function:  
 <!-- f(t) = sin(2\pi t \frac{f_1-f_0}{2T} \cdot t^2) -->
 <p align="center">
-  <img src="./functions/sweepsine/sweep_function.png" width="200" title="Sweep sine function.">
+  <img src="./functions/sweepsine/sweep_function.png" width="300" title="Sweep sine function.">
 </p>
 f0 is starting frequency.  
 f1 is ending frequency.  
@@ -60,13 +70,13 @@ In this test f0 = 0.00001, f1 = 1 and T = 500.
 The step function increased in size for each period. The function can be described as:  
 <!-- g(t) = a(t)\cdot  sign(sin(2\pi ft)) -->
 <p align="center">
-  <img src="./functions/step/function.png" width="200" title="Step function.">
+  <img src="./functions/step/function.png" width="250" title="Step function.">
 </p>
 <!-- a(t) = int(tf) \cdot c, \text{ where } c = 0.01 -->
-<p align="center">
+<!-- <p align="center">
   <img src="./functions/step/a_function.png" width="200" title="a(t) function.">
-</p>
-The frequency f = 1/10. 
+</p> -->
+The frequency f = 1/10 and c = 0.01. 
 
 # IKFast
 ## Handwritten digits
@@ -302,7 +312,7 @@ The PCA algorithm is used to learn trajectories of the robot and then be able to
   <img src="./GIFS/pca_demo.gif" title="PCA circle generator." width="300">
 </p>
 
-Preprocessed input data is shown below. The data is moved to origin, flattened in z, zero mean and unit length.
+Preprocessed input data is shown below. The data is moved to origin, flattened in z, and standardized.
 
 <p align="center">
   <img src="./pca_learning/images/all.png" title="PCA circle data." width="500">
