@@ -1,12 +1,12 @@
 clear
 
-T_left = readtable('./computer_generated_paths/sweepsine/sweepsineleft.csv', 'HeaderLines', 1);
-T_right = readtable('./computer_generated_paths/sweepsine/sweepsineright.csv', 'HeaderLines', 1);
+% T_left = readtable('./computer_generated_paths/sweepsine/sweepsineleft.csv', 'HeaderLines', 1);
+% T_right = readtable('./computer_generated_paths/sweepsine/sweepsineright.csv', 'HeaderLines', 1);
+T_left = readtable('../IKFast/computer_generated/sweepsine/sweepsine_left.csv', 'HeaderLines', 1);
+T_right = readtable('../IKFast/computer_generated/sweepsine/sweepsine_right.csv', 'HeaderLines', 1);
 
-
-
-input_signal = table2array( T_left(:,3) );
-output_signal = table2array( T_left(:,6) );
+input_signal = table2array( T_right(:,3) );
+output_signal = table2array( T_right(:,6) );
 
 input_signal = reshape(input_signal, 1, []);
 output_signal = reshape(output_signal, 1, []);
