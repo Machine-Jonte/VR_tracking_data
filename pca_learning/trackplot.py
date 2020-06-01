@@ -149,6 +149,7 @@ class AlterablePlot:
         self.ax2.set_zlabel('Z axis')
         self.ax2.legend()
         self.ax2.set_aspect('equal')
+        # self.ax2.axis("off")
         set_axes_equal(self.ax2)
 
 
@@ -170,3 +171,52 @@ def plotMatrix(matrix):
         # ax.legend()
         ax.set_aspect('equal')
         set_axes_equal(ax)
+
+
+
+
+class SimpleMassImage:
+    def __init__(self, mean_shape, pca, save_path):
+        self.mean_shape = mean_shape
+        self.pca = pca
+        self.p = np.zeros((pca.n_components))
+        self.save_path = save_path
+
+    def calculateNewShape(self):
+        # self.components = np.array([slider.val for slider in self.components_slider]) # Get the values of the PCA components
+        new_shape = self.mean_shape + np.dot(self.pca.components_.T, self.p) # Generate new shape
+        new_shape = new_shape.flatten() # Remove axis in np array
+        return new_shape
+
+    def iterateFig(self):
+        # for i in range(0,self.p.size):
+        for i in [0]:
+            print(i)
+            self.p = np.zeros((self.pca.n_components))
+            for p_value in range(-200,201):
+                self.p[i] = p_value
+                new_shape = self.calculateNewShape()
+                fig = plt.figure(str(i), frameon=False)
+                # ax = fig.add_subplot(111, projection='3d')
+                # ax = plt.Axes(fig, [0., 0., 1., 1.])
+                ax = fig.gca(projection='3d')
+                ax.cla()
+                ax.view_init(elev=0, azim=180)
+                plt.plot(new_shape[0:50], new_shape[50:100], new_shape[100:150],     label="Left Generated" )
+                plt.plot(new_shape[150:200], new_shape[200:250], new_shape[250:300], label="Right Generated")
+                set_axes_equal(ax)
+                ax.axis("off")
+                
+                
+
+                # plt.show()
+                # plt.plot(self.mean_shape[0:50], self.mean_shape[50:100], self.mean_shape[100:150],     label="Left Mean" ,       visible=self.visibility[2])
+                # plt.plot(self.mean_shape[150:200], self.mean_shape[200:250], self.mean_shape[250:300], label="Right Mean",       visible=self.visibility[3])
+                # plt.plot()
+                # fig.subplots_adjust(bottom = 0)
+                # fig.subplots_adjust(top = 1)
+                # fig.subplots_adjust(right = 1)
+                # fig.subplots_adjust(left = 0)
+                file_name = self.save_path + "p" + str(i+1) + "/" + str(i+1) + "_" + str(p_value)+".png"
+                print(file_name)
+                plt.savefig(file_name, bbox_inches='tight', transparent=False, pad_inches=0)

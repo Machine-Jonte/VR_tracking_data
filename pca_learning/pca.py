@@ -14,8 +14,8 @@ from scipy import stats
 import sys
 
 
-# PATH = "./two_circles/"
-PATH = "./training/"
+PATH = "./two_circles/"
+# PATH = "./training/"
 # PATH = "./complex/"
 
 
@@ -84,12 +84,32 @@ if __name__ == "__main__":
 
     # matrix = np.array(matrix)
     
-    trackplot.plotMatrix(matrix)
+    # trackplot.plotMatrix(matrix)
+    # plt.show()
+    # exit()
 
     data_matrix = np.array(matrix)
     pca = PCA(n_components=8)
+    # pca = PCA()
+
     principle_components = pca.fit_transform(data_matrix)
     mean_shape = np.sum(data_matrix, axis=0)
 
-    alterable_plt = trackplot.AlterablePlot("test", mean_shape, pca)
+    # alterable_plt = trackplot.AlterablePlot("test", mean_shape, pca)
+    # plt.axis("off")
+
+    # massImage = trackplot.SimpleMassImage(mean_shape, pca, PATH+"images/")
+    # massImage.iterateFig()
+    # print(pca.n_components_)
+    
+
+    plt.figure()
+    pca = PCA().fit(data_matrix)
+    plt.plot(np.cumsum(pca.explained_variance_ratio_))
+    plt.xlabel('number of components')
+    plt.ylabel('cumulative explained variance')
+
+
+
+
     plt.show()

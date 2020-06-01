@@ -102,4 +102,17 @@ if __name__ == "__main__":
         plt.ylabel("z")
         plt.xlabel("Seconds")
 
+        fig_comp = plt.figure(names[i] + "y_compare")
+        ax_comp = fig_comp.add_subplot(211)
+        ax_comp.plot(t, y_c, label="Robot Position")
+        plt.ylabel("y")
+        plt.legend()
+        ax_comp2 = fig_comp.add_subplot(212)
+        ax_comp2.plot(t, y_t, label="Target Position", color='orange')
+        plt.ylabel("y")
+        plt.xlabel("Seconds")
+        plt.legend()
+
+
+
     plt.show()
