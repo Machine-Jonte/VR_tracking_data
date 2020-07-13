@@ -8,7 +8,8 @@ This repository contains data regarding the [moveit_vive](https://github.com/Mac
 All the packages developed and used for the thesis is in the github repositories below. The code will be released when the thesis is accepted (around end of July 2020).  
   
 The data is generated and collected using the ROS packages:  
-* [moveit_vive](https://github.com/Machine-Jonte/moveit_vive), used for controlling and recording data.
+* [moveit_vive](https://github.com/Machine-Jonte/moveit_vive), used for sending MoveIt commands to robot.
+* [control_evaluation](https://github.com/Machine-Jonte/control_evaluation), for recording trajectories and trajectory replay for the statistical shape modeling learning task (using PCA).
 * [vive_ros](https://github.com/Machine-Jonte/vive_ros/tree/master), reading controller data and send it as ROS messages (modified version by me).
 * [panda_dual_gazebo_moveit_config](https://github.com/Machine-Jonte/panda_dual_gazebo_moveit_config), configuration for MoveIt.
 * [panda_dual_gazebo](https://github.com/Machine-Jonte/panda_dual_gazebo), xacro and robot files (modified for working with gazebo). 
