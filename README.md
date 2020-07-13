@@ -2,7 +2,7 @@
 This repository contains data regarding the [moveit_vive](https://github.com/Machine-Jonte/moveit_vive) VR control system for robots. The system is througly presenented in the MCs thesis (link soon available and BibTeX for the people interested in referring to the work).
 
 <p align="center">
-  <img src="./GIFS/demo.gif" title="Hello World!" width="800">
+  <img src="./GIFS/demo.gif" title="Simple demo." width="800">
 </p>
 
 All the packages developed and used for the thesis is in the github repositories below. The code will be released when the thesis is accepted (around end of July 2020).  
@@ -35,3 +35,9 @@ or
 ```
 cd {where plot_graph.py is located}
 python plot_graph_two_files.py /dir/to/left.csv /dir/to/right.csv
+```
+
+## Demonstration of using the system to carry an object in simulation
+<p align="center">
+  <img src="./GIFS/carry_object.gif" title="Carry object using two arms." width="800">
+</p>
